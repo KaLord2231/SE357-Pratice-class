@@ -1,0 +1,106 @@
+@startuml
+left to right direction
+class Account{
+    - username: string
+    - password: string
+    - type: int
+    +Account(username, password, type)
+    +GetUsername(): string
+    +GetPassword():string
+    +GetType():int
+    +Update():Void
+}
+class New{
+    - title:string
+    - form: string
+    - category: Category
+    - description: string
+    - imgurl: string
+    +New(title, form, category, description, imgurl)
+    +Gettitle(): string
+    +Getform():string
+    +Getcategory(): Category
+    +Getdescription():string
+    +Getimgurl():string
+}
+class Category{
+    - new: List<New>
+    - servise: List<Servise>
+    - contact: List<Contact>
+    +Category(new, servise, contact)
+    +Getnew():List<New>
+    +Getadvise():List<Advise>
+    +Getcontact():List<Contact>
+}
+class Project{
+    - projectname: string
+    - owner: string
+    - type: int
+    - status: int
+    - address: string
+    +Project(projectname, owner, type, status, address)
+    +Getprojectname():string
+    +Getowner():string
+    +Gettype(): int
+    +Getstatus(): int
+    +Getaddress(): string
+}
+class Admin{
+    - id:string
+    -name:string
+    -address:string
+    +Admin(id, name, address)
+    +Getid():string
+    +Getname():string
+    +Getaddress():string
+    +addCustomer(Customer)
+    +editCustomer(Customer)
+    +DeleteCustomer(Customer)
+    +addProject(Project): 
+    +editProject(Project)
+    +...()
+}
+class Customer{
+    -id:string
+    -name: string
+    -phonenumber: string
+    -address: string
+    +Customer(id,name, phonenumber,address)
+    +Getid():string
+    +Getname(): string
+    +Getphonenumber():string
+    +Getaddress():string
+    +UseServise():List<Servise>
+    +WatchProject():List<Project>
+
+}
+class Servise{
+    - name:string
+    - id: string
+    - description: string
+    +Servise(name,id, description)
+    +Getname():string
+    +Getid():string
+    +Getdescription():string
+}
+class Contact{
+    - information: Customer
+    - contact_description: string
+    +Contact(information, contact_description)
+    +Getinformation(): Customer
+    +Getcontact_description(): string
+}
+
+Account*--Customer
+Account*--Admin
+Customer"1"----"many"Project: Watch
+Customer"1"----"many"New: Watch
+Contact-->Customer
+Admin"1"----"many"Project: Manage 
+Admin"1"----"many"New: Watch
+Servise--Customer:Using
+Category"0.."--"1.*"Servise:contains
+Category"0.."--"1.*"Contact: contains
+Category"0.."--"1.*"New: contains
+
+@enduml
