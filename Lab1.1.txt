@@ -1,0 +1,25 @@
+1. What criteria should be used in choosing an appropriate requirements engineering tool?
+- Functionality:Assess the tool's features and capabilities. Ensure that it supports the essential requirements engineering activities such as requirement elicitation, documentation, analysis, traceability, and change management. Consider if it integrates with other tools or frameworks you use, such as project management or version control systems. 
+- Easy of Using: Evaluate the tool's user interface and intuitiveness. It should be easy for stakeholders, including business analysts and domain experts, to understand and navigate. A tool that is user-friendly can enhance collaboration and adoption within your team.
+- Customization and Flexibility: Consider if the tool allows customization to adapt to your organization's specific requirements engineering processes and terminology. Look for flexibility in defining attributes, templates, workflows, and reports.
+- Reporting and Documentation: Assess the tool's reporting capabilities. It should offer predefined and customizable reports, as well as the ability to generate requirement documents in different formats (e.g., Word, PDF) to cater to diverse stakeholder needs.
+Cost and Licensing: Evaluate the tool's pricing model, licensing options, and total cost of ownership. Consider if the tool provides value for the investment based on your organization's budget and needs.
+
+2. Are there any drawbacks to using certain tools in requirements engineering activities?
+- Complexity: Some tools can be complex and require a significant learning curve to effectively use them. This can lead to increased time and effort spent on training team members to use the tool, which may delay the requirements engineering process.
+- Cost: Certain tools may come with high licensing fees or require additional hardware or infrastructure, making them expensive to implement and maintain. This can be a limitation for organizations with budget constraints.
+- Limited flexibility: Some tools may have a predefined set of features and templates, which may not align perfectly with the specific requirements engineering needs of an organization. This lack of flexibility can hinder customization and adaptation to unique project contexts.
+- Integration challenges: Integrating a requirements engineering tool with existing tools and systems used in the organization can be challenging. Compatibility issues, data migration, and synchronization problems may arise, leading to inefficiencies and inconsistencies in the requirements management process.
+- Collaboration limitations: Collaboration is a crucial aspect of requirements engineering, and some tools may not provide robust collaboration features. Limited support for real-time collaboration, version control, and communication among stakeholders can hinder effective collaboration, especially in distributed or remote teams.
+- Maintenance and support: Tools require ongoing maintenance and support to ensure their optimal functioning. Lack of timely updates, bug fixes, and technical support can impact the usability and reliability of the tool, potentially affecting the requirements engineering process.
+- User resistance: Introducing new tools into an organization may face resistance from team members who are comfortable with existing processes or tools. Resistance to change can affect user adoption and hinder the overall effectiveness of the requirements engineering activities
+
+3. When selecting an open-source tool, what characteristics should you look for?
+
+4. How can tools enable distributed, global requirements engineering activities? What are the drawbacks in this regard?
+
+5. If an environment does not currently engage in solid requirements engineering practices, should tools be introduced?
+
+6. What sort of problems might you find through a traceability matrix that you might not see without one?
+
+7. How is AI being proposed for knowledge acquisition and representation in requirements specifications?
