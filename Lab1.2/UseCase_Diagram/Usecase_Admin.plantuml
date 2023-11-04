@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+skinparam style strictuml
+ actor Admin as Ad/'Quản lý'/
+ usecase "Category Management" as UCCate /'QL Danh mục'/
+ usecase "Project Management" as UCPro /'QLDA BDS'/ 
+ usecase "Property News" as UCNew /'Đăng tin'/
+ usecase "Service Management" as UCSeM /'Quản lý dịch vụ'/
+ usecase "Statistical" as UCSta /'Xem thống kê'/ 
+ usecase "Employee Management" as UCEM
+ usecase "Account" as UCAcc
+ Ad-->(UCAcc)
+ Ad-->(UCCate)
+ Ad-->(UCPro)    
+ Ad-->(UCSta)
+ Ad-->(UCNew)
+ Ad-->(UCSeM)
+ Ad-->(UCEM)
+ usecase "Add Category" as UCAdCate
+ usecase "Edit Category" as UCEdCate
+ usecase "Delete Category" as UCDeCate
+ (UCCate)..>(UCAdCate)
+ (UCCate)..>(UCEdCate)
+ (UCCate)..>(UCDeCate)
+
+ usecase "Add Project" as UCAdPro
+ usecase "Edit Project" as UCEdPro
+ usecase "Delete Project" as UCDePro
+ (UCPro)..>(UCAdPro)
+ (UCPro)..>(UCEdPro)
+ (UCPro)..>(UCDePro) 
+ usecase "Delete News" as UcDeNews
+
+ usecase "Add News" as UcAdNews
+ usecase "Edit News" as UcEdNews
+ usecase "Set Date"as UCSetDate /'Lên lịch đăng tin'/
+ (UCNew)..><<include>>(UCSetDate):
+ (UCNew)..>(UcAdNews)
+ (UCNew)..>(UcEdNews)
+ (UCNew)..>(UcDeNews)
+ usecase "Add Service" as UcAdSer
+ usecase "Edit Service" as UcEdSer
+ usecase "Delete Service" as UcDeSer
+ (UCSeM)..> (UcAdSer)
+ (UCSeM)..> (UcEdSer)
+ (UCSeM)..> (UcDeSer)
+ '/Thống kê'/
+ usecase "Export Report" as UCExRp
+ (UCSta)..>(UCExRp)
+
+usecase "Add Employee" as UcAE
+usecase "Edit Employee" as UcEdE
+usecase "Delete Employee"as UCDeE
+(UCEM)..>(UcAE)
+(UCEM)..>(UcEdE)
+(UCEM)..>(UCDeE)
+
+usecase "Login/Logout" as UCLog
+
+(UCAcc)..>(UCLog)
+
+@enduml

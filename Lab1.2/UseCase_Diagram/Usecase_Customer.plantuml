@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+Actor "Customer" as Cus
+usecase "Watch Real Estate" as WRS
+    usecase "Distribute Real Estate"as DRE /'Phân loại BDS'/
+    usecase "Share Post" as Share 
+    usecase "Search"as Search
+    usecase "Comment" as Comment
+
+    (WRS)..>(DRE)
+    (WRS)..>(Share)
+    (WRS)..>(Search)
+    (WRS)..>(Comment)
+Cus-->WRS
+usecase "Login/Logout" as log 
+    usecase "Register" as Reg 
+    usecase "forgot Password" as fogot 
+    usecase "Change Password" as ChgPass 
+(log)..>"<<include>>"(Reg)
+(log)..>"<<extend>>"(fogot)
+(log)..>"<<extend>>"(ChgPass)
+Cus-->log
+usecase "Information Management" as InfManage
+    usecase "Edit information" as EdInf
+    Cus-->(InfManage)
+    (InfManage)..>(EdInf)
+usecase "Advise" as Adv
+Cus-->(Adv)
+usecase "Using Service" as Serv
+    usecase "Making Appointment" as MAP /'Đặt lịch hẹn'/
+    usecase "Supporting Contract" as SuCon /'Hỗ trợ hợp đồng'/
+    usecase "Advisory Legal" as AdLegal /'Tư vấn luật'/
+    (Serv)..>(MAP)
+    (Serv)..>(SuCon)
+    (Serv)..>(AdLegal)
+Cus -->(Serv)
+@enduml
