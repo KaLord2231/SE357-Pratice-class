@@ -53,6 +53,7 @@ skinparam style strictuml
  (UCSta)..>(UCExRp)
  (UCSta)..>(UCStP)
  (UCSta)..>(UCStPro)
+ (UCSta)..>(UCStEmp)
 usecase "Add Employee" as UcAE
 usecase "Edit Employee" as UcEdE
 usecase "Delete Employee"as UCDeE
