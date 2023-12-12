@@ -34,7 +34,7 @@ skinparam style strictuml
  usecase "Add News" as UcAdNews
  usecase "Edit News" as UcEdNews
  usecase "Set Date"as UCSetDate /'Lên lịch đăng tin'/
- (UCNew)..><<include>>(UCSetDate):
+ (UCNew)..>"<<include>>"(UCSetDate)
  (UCNew)..>(UcAdNews)
  (UCNew)..>(UcEdNews)
  (UCNew)..>(UcDeNews)
@@ -46,8 +46,13 @@ skinparam style strictuml
  (UCSeM)..> (UcDeSer)
  '/Thống kê'/
  usecase "Export Report" as UCExRp
- (UCSta)..>(UCExRp)
+ usecase "Statising Poster" as UCStP/'Thống kê tin đăng'/
+ usecase "Statising Employee" as UCStEmp/'Thống kê nhân viên'/
+ usecase "Statising Project" as UCStPro/'Thống kê dự án'/
 
+ (UCSta)..>(UCExRp)
+ (UCSta)..>(UCStP)
+ (UCSta)..>(UCStPro)
 usecase "Add Employee" as UcAE
 usecase "Edit Employee" as UcEdE
 usecase "Delete Employee"as UCDeE

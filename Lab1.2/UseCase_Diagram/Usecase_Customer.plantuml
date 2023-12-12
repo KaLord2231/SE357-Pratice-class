@@ -24,8 +24,7 @@ usecase "Information Management" as InfManage
     usecase "Edit information" as EdInf
     Cus-->(InfManage)
     (InfManage)..>(EdInf)
-usecase "Advise" as Adv
-Cus-->(Adv)
+
 usecase "Using Service" as Serv
     usecase "Making Appointment" as MAP /'Đặt lịch hẹn'/
     usecase "Supporting Contract" as SuCon /'Hỗ trợ hợp đồng'/

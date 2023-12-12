@@ -1,0 +1,32 @@
+@startuml
+actor User as User
+
+participant Controller
+participant Service 
+participant Database 
+
+User -> Controller: Login request
+activate Controller
+Controller -> Service: Call login function
+activate Service
+Service->Database: Find user
+activate Database
+alt Not found 
+    Database --> Service:Not found
+    Service --> Controller: Not found
+    Controller--> User: Login failed
+else Found
+    alt Invalid Data
+    Database --> Service:Found user
+    Service --> Controller: Invalid data
+    Controller-->User: Login failed
+    else Valid data
+    Database --> Service:Found user
+    deactivate Database
+    Service --> Controller: Valid data
+    deactivate Service
+    Controller-->User: Login successful
+    deactivate Controller
+    end
+end 
+@enduml

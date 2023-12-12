@@ -1,0 +1,55 @@
+@startuml
+actor User as User
+participant Controller
+participant Service 
+database Database 
+
+==Create Service==
+User->Controller: Request service creation
+Controller-->User: Show service creation form
+User->Controller: Fill in service information
+Controller->Service: Validate service creation request
+alt valid request
+    Service->Database: Hosting new service
+    Database-->Service: Hosting successfully
+    Service-->Controller: Service created
+    Controller-->User: Create service successfully
+else invalid request
+    Service->Database: Hosting new service
+    Database-->Service: Hosting error
+    Service-->Controller: Request problem
+    Controller-->User: Create service failed
+end
+==Edit Service==
+User->Controller: Request edit service
+Controller-->User: Show service Edit form
+User->Controller: Change service information
+Controller->Service: Validate service edition request
+alt service exists
+    Service->Database: Update service by id
+    Database-->Service: Service data
+    Service-->Controller: Service updated
+    Controller-->User: Edit service successfully
+else service not found of invalid edit 
+    Service->Database: Edit service
+    Database-->Service: Edit error
+    Service-->Controller: Request problem
+    Controller-->User: Edit service failed
+end
+==Delete Service==
+User->Controller: Request delete service
+Controller-->User: Show confirmation form
+User->Controller: Confirm delete service
+Controller->Service: Validate service deletion request
+alt service exists
+    Service->Database: Delete service
+    Database-->Service: delete confirmation
+    Service-->Controller: Service deleted
+    Controller-->User: Delete service successfully
+else service not found
+    Service->Database: Delete service
+    Database-->Service: Service not found
+    Service-->Controller: Error in deletion
+    Controller-->User: Delete service failed
+end
+@enduml
