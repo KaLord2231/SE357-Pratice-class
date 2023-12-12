@@ -1,0 +1,10 @@
+@startuml
+title login activity diagram 
+start
+repeat :User enters username and password;
+if (Correct username and password?) then (yes)
+:User successfull login; 
+stop
+else(no)
+:invalid username of password;
+@enduml

@@ -1,0 +1,30 @@
+@startuml
+title Real Estate 
+!pragma useVerticalIf on
+start
+  :Select Real Estate tab;
+  
+  split
+    :Choose attributes to display;
+  split again
+    :Enter search information;
+    
+    if (Found?) then (yes)
+      :Display search results;
+    else (no)
+      :Display not found;
+    endif
+  split again
+    :Select Real Estate;
+    switch ( Action?)
+case ( Edit)
+:Edit information;
+case ( Delete)
+
+endswitch
+    :Notification;
+    :Display list;
+  end split
+:Exit tab;
+stop
+@enduml

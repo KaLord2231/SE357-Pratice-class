@@ -1,4 +1,5 @@
 @startuml
+title service
 actor User as User
 participant Controller
 participant Service 

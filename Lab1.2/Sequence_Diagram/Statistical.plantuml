@@ -1,0 +1,22 @@
+@startuml
+title satistical
+actor User as User
+participant Controller
+participant Service 
+database Database 
+==Watch satistical==
+User->Controller: Watch satistical request
+Controller-->User: Show selection screen
+User->Controller: Select data
+Controller ->Service: Call satistical function
+Service->Database: Query information
+Database-->Service: Return data
+Service-->Controller: Satistical(data)
+Controller-->User: Show satistical screen
+==Export satistical==
+Controller-->User:Show satistical screen
+User->Controller: Export satistical request
+Controller->Service: Call Export(data,format)
+Service-->Controller: Export data list
+Controller-->User: Export successfully.
+@enduml

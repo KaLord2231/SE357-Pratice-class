@@ -1,8 +1,9 @@
 @startuml
+title Register
 actor User as User
 participant Controller
 participant Service 
-participant Database 
+database Database 
 
 User -> Controller: Registration request
 activate Controller

@@ -1,0 +1,39 @@
+@startuml
+title News
+actor User as User
+participant Controller
+participant Service 
+database Database 
+==Post news==
+User->Controller: Request to post news
+Controller-->User: Shows creation news form
+User->Controller: Input content, image
+Controller->Controller: Valid information
+Controller->Service: Call create post function
+Service->Database: Check information
+alt valid format 
+    Database-->Service: Saved news
+    Service-->Controller: Create_post(news)
+    Controller-->User: Posting successfully
+else invalid format
+    Database-->Service: Error
+    Service-->Controller: Call create post function failed
+    Controller-->User: Posting failed
+end
+==Edit news==
+User->Controller: Request to edit news
+Controller-->User: Shows edit news form
+User->Controller: Change content, image
+Controller->Controller: Valid information
+Controller->Service: Call Edit post function
+Service->Database: Check information
+alt valid format 
+    Database-->Service: Saved news
+    Service-->Controller: Edit_post(news)
+    Controller-->User: Edit post successfully
+else invalid format
+    Database-->Service: Error
+    Service-->Controller: Call edit post function failed
+    Controller-->User: Edit failed
+end
+@enduml

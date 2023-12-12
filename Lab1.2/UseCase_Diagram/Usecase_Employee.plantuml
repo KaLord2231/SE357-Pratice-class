@@ -7,16 +7,15 @@ usecase "Advise" as UCAdv
 usecase "Answer question" as UCAns
 usecase "Delete question" as UCDeQ
 usecase "Set-up auto Answer " as UCSeAuto
-Emp-->UCAdv
+usecase "Customer management"as CusM
+Emp-->CusM
+
+CusM-->UCAdv
 (UCAdv)..>(UCAns)
 (UCAdv)..>(UCDeQ)
 (UCAdv)..>(UCSeAuto)
-usecase "Contact" as UCCont
-usecase "Receive Requirement" as UCReq /'Tiếp nhận yêu cầu'/
-usecase "Export Contact List" as UCExCL /'Xuất danh sách liên hệ'/
-Emp-->(UCCont)
-(UCCont)..>(UCReq)
-(UCCont)..>"<<Extend>>"(UCExCL)
+usecase "Create Contract" as UCCont
+CusM-->(UCCont)
 usecase "Login/Logout" as UCAcc
 Emp-->"<<include>>"(UCAcc)
 '/Đăng tin BDS'/

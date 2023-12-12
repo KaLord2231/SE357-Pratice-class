@@ -1,0 +1,56 @@
+@startuml
+title Project
+actor User as User
+participant Controller
+participant Service 
+database Database 
+
+==Create Project==
+User->Controller: Request project creation
+Controller-->User: Show project creation form
+User->Controller: Fill in project information
+Controller->Service: Validate project creation request
+alt valid request
+    Service->Database: Hosting new project
+    Database-->Service: Hosting successfully
+    Service-->Controller: project created
+    Controller-->User: Create project successfully
+else invalid request
+    Service->Database: Hosting new project
+    Database-->Service: Hosting error
+    Service-->Controller: Request problem
+    Controller-->User: Create project failed
+end
+==Edit project==
+User->Controller: Request edit project
+Controller-->User: Show project edit form
+User->Controller: Change project information
+Controller->Service: Validate project edition request
+alt service exists
+    Service->Database: Update project by id
+    Database-->Service: project data
+    Service-->Controller: project updated
+    Controller-->User: Edit project successfully
+else service not found of invalid edit 
+    Service->Database: Edit project
+    Database-->Service: Edit error
+    Service-->Controller: Request problem
+    Controller-->User: Edit project failed
+end
+==Delete project==
+User->Controller: Request delete project
+Controller-->User: Show confirmation form
+User->Controller: Confirm delete project
+Controller->Service: Validate project deletion request
+alt service exists
+    Service->Database: Delete project
+    Database-->Service: delete confirmation
+    Service-->Controller: project deleted
+    Controller-->User: Delete project successfully
+else service not found
+    Service->Database: Delete project
+    Database-->Service: project not found
+    Service-->Controller: Error in deletion
+    Controller-->User: Delete project failed
+end
+@enduml

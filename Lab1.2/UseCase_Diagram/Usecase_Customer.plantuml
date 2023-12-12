@@ -21,16 +21,16 @@ usecase "Login/Logout" as log
 (log)..>"<<extend>>"(ChgPass)
 Cus-->log
 usecase "Information Management" as InfManage
-    usecase "Edit information" as EdInf
+    usecase "Edit profile" as EdInf
     Cus-->(InfManage)
     (InfManage)..>(EdInf)
 
 usecase "Using Service" as Serv
     usecase "Making Appointment" as MAP /'Đặt lịch hẹn'/
     usecase "Supporting Contract" as SuCon /'Hỗ trợ hợp đồng'/
-    usecase "Advisory Legal" as AdLegal /'Tư vấn luật'/
+    
     (Serv)..>(MAP)
     (Serv)..>(SuCon)
-    (Serv)..>(AdLegal)
+
 Cus -->(Serv)
 @enduml
