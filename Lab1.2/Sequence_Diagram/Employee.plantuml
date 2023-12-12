@@ -1,0 +1,50 @@
+@startuml
+title Employee
+actor User as User
+participant Controller
+participant Service 
+database Database 
+group Manage Customer
+    group Create a advise schedule 
+    User->Controller: Request to create advise schedule
+    activate Controller
+    Controller->Service: ValidateScheduleDetail(time, details)
+    activate Service
+    alt time and details are valid
+    Service->Database: InsertScheduleDetail(time, details)
+    activate Database
+    Database-->Service: Confirm Schedule Creation
+    deactivate Database
+    Service-->Controller: Schedule creation confirmation
+    deactivate Service
+    Controller-->User: Display schedule confirmation
+    deactivate Controller
+    else invalid details and time
+    Service-->Controller: Schedule creation error
+    Controller-->User: Show error message
+    end
+    end
+
+    group Create Contact
+    User->Controller: Request to create contract
+    activate Controller
+    Controller->Service:ValidateContractRequest(contractId)
+    activate Service
+        alt contractId is valid
+        Service->Database: RetreiveContractDetails(contractId)
+        activate Database
+        Database-->Service: Contract detail
+        deactivate Database
+        Service->Service: GenerateContract(data)
+        Service-->Controller: Contract generated
+        deactivate Service
+        Controller-->User: Show contract
+        else Invalid contractId
+        Service-->Controller: Contract error
+        Controller-->User: Show error message
+        end
+
+    end
+end
+
+@enduml
