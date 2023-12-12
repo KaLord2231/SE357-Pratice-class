@@ -1,0 +1,55 @@
+@startuml
+actor User as User
+participant Controller
+participant Service 
+database Database 
+
+==Create Category==
+User->Controller: Request category creation
+Controller-->User: Show category creation form
+User->Controller: Fill in category information
+Controller->Service: Validate category creation request
+alt valid request
+    Service->Database: Hosting new category
+    Database-->Service: Hosting successfully
+    Service-->Controller: Category created
+    Controller-->User: Create category successfully
+else invalid request
+    Service->Database: Hosting new category
+    Database-->Service: Hosting error
+    Service-->Controller: Request problem
+    Controller-->User: Create category failed
+end
+==Edit Category==
+User->Controller: Request edit category
+Controller-->User: Show category edit form
+User->Controller: Change category information
+Controller->Service: Validate category edition request
+alt service exists
+    Service->Database: Update category by id
+    Database-->Service: Category data
+    Service-->Controller: Category updated
+    Controller-->User: Edit Category successfully
+else service not found of invalid edit 
+    Service->Database: Edit category
+    Database-->Service: Edit error
+    Service-->Controller: Request problem
+    Controller-->User: Edit category failed
+end
+==Delete Category==
+User->Controller: Request delete category
+Controller-->User: Show confirmation form
+User->Controller: Confirm delete category
+Controller->Service: Validate category deletion request
+alt service exists
+    Service->Database: Delete category
+    Database-->Service: delete confirmation
+    Service-->Controller: Category deleted
+    Controller-->User: Delete category successfully
+else service not found
+    Service->Database: Delete category
+    Database-->Service: Category not found
+    Service-->Controller: Error in deletion
+    Controller-->User: Delete category failed
+end
+@enduml

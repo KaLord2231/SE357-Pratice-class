@@ -19,4 +19,15 @@ Emp-->(UCCont)
 (UCCont)..>"<<Extend>>"(UCExCL)
 usecase "Login/Logout" as UCAcc
 Emp-->"<<include>>"(UCAcc)
+'/Đăng tin BDS'/
+usecase "Post News" as UCNew
+ usecase "Delete News" as UcDeNews
+ usecase "Add News" as UcAdNews
+ usecase "Edit News" as UcEdNews
+ usecase "Set Date"as UCSetDate /'Lên lịch đăng tin'/
+ (UCNew)..>"<<include>>"(UCSetDate)
+ (UCNew)..>(UcAdNews)
+ (UCNew)..>(UcEdNews)
+ (UCNew)..>(UcDeNews)
+ Emp-->(UCNew)
 @enduml

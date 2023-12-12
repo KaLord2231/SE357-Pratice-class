@@ -1,0 +1,37 @@
+@startuml
+actor User as User
+participant Controller
+participant Service 
+participant Database 
+
+User -> Controller: Registration request
+activate Controller
+Controller ->Controller:Valid information
+
+Controller->Service: Call register function
+activate Service
+Service->Database: Check information
+activate Database
+alt If all are Valid
+Database-->Service: Not found
+Service-->Controller: Valid information
+deactivate Database
+deactivate Service
+Controller->Service: Call create account function
+activate Service
+Service->Database: Add new account
+activate Database
+Database-->Service: Completed
+Service--> Controller: Completed
+Controller-->User: Register successfully
+deactivate Database
+deactivate Service
+else Invalid
+    Database-->Service: Information found
+    activate Database
+    activate Service
+    Service-->Controller: User found
+    Controller-->User: User information already exist
+
+end
+@enduml

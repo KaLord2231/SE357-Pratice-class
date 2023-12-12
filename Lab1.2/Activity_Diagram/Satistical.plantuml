@@ -1,0 +1,7 @@
+@startuml
+title Satistical Activity Diagram
+start
+:User accesses "Satistical" tab;
+ 
+stop
+@enduml
