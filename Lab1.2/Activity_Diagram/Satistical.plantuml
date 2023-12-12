@@ -1,7 +1,15 @@
 @startuml
 title Satistical Activity Diagram
 start
-:User accesses "Satistical" tab;
- 
+:User accesses "Statistical" tab;
+: Select data field to export;
+:Select date range;
+if(require additional information?) then (yes)
+:select additional information;
+else (no)
+endif
+:select download button;
+:Exit statistical tab;
+
 stop
 @enduml
